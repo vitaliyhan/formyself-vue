@@ -6,12 +6,7 @@
 </head>
 <body>
 <div id="app">
-    <h1>Hello, {{ name }}</h1>
-    <h1>Sum: {{ 300 + 100 }}</h1>
-    <h1>Sum: {{ number }}</h1>
-    <h1>Method: {{ sayHello() }}</h1>
-    <h1>if: {{ isOk ? 'ok' : 'not ok' }}</h1>
-    <h1>functions: {{ string.split('').reverse().join('') }}</h1>
+    <h2><a v-bind:href="url" target="_blank">{{ url }}</a></h2>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -19,15 +14,7 @@
     new Vue({
         el: '#app',
         data: {
-            name: 'Vue!',
-            number: 100,
-            isOk: true,
-            string: 'my name is Vitaly'
-        },
-        methods: {
-            sayHello: function () {
-                return 'im string'
-            }
+            url: 'http://google.com'
         }
     });
 </script>
