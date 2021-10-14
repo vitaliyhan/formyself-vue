@@ -4,34 +4,20 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .circle {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            border: 1px solid black;
-            display: inline-block;
-            margin: 40px;
-        }
 
-        .red {
-            background: red;
-        }
-
-        .blue {
-            background: blue;
-        }
-
-        .green {
-            background: green;
-        }
     </style>
 </head>
 <body>
 <div id="app">
-    <div class="circle" :style="circleClasses"></div>
-    <div class="circle" :style="[circleClasses, {'width':height+'px'} ]"></div>
-    <input type="text" v-model="color">
-    <input type="text" v-model="height">
+    <template v-if="is">
+        <h2>Im a title1</h2>
+        <p>Im a title1</p>
+    </template>
+    <template v-else>
+        <h2>Im a title2</h2>
+        <p>Im a title2</p>
+    </template>
+    <button @click="is=!is">feffs</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -39,17 +25,9 @@
     new Vue({
         el: '#app',
         data: {
-            isActive: false,
-            color: '',
-            height: '',
+            is: false,
         },
-        computed: {
-            circleClasses: function () {
-                return {'background': this.color, 'height': this.height + 'px'}
-            }
-
-        },
-
+        computed: {},
         methods: {}
     })
 </script>
