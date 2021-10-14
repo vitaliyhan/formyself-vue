@@ -9,14 +9,10 @@
 </head>
 <body>
 <div id="app">
-    <template v-if="is">
-        <h2>Im a title1</h2>
-        <p>Im a title1</p>
-    </template>
-    <template v-else>
-        <h2>Im a title2</h2>
-        <p>Im a title2</p>
-    </template>
+
+    <h2 v-show="is">Im a title1</h2>
+
+    <h2 v-show="!is">Im a title2</h2>
     <button @click="is=!is">feffs</button>
 </div>
 
