@@ -6,12 +6,8 @@
 </head>
 <body>
 <div id="app">
-    <h2><a :href="url" target="_blank">Goggle</a></h2>
-    <h2>
-        Counter {{ number }}
-    </h2>
-    <button v-on:click="number++">+</button>
-    <button @click="number++">+</button>
+    <input type="text" v-model.lazy="inputValue">
+    <h2>{{ inputValue }}</h2>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -19,8 +15,7 @@
     new Vue({
         el: '#app',
         data: {
-            url: 'http://google.ru',
-            number: 0
+            inputValue: 'Initial value',
         },
         methods: {}
     })
