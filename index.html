@@ -6,9 +6,12 @@
 </head>
 <body>
 <div id="app">
-    <h2><a href="http://google.ru" target="_blank" v-on:click.prevent="">Goggle</a></h2>
-
-    <h2 v-on:mousemove="handleMouseMove">X: {{ x }} \ Y: {{ y }} <span v-on:mousemove.stop="">Не изменять</span></h2>
+    <h2><a :href="url" target="_blank">Goggle</a></h2>
+    <h2>
+        Counter {{ number }}
+    </h2>
+    <button v-on:click="number++">+</button>
+    <button @click="number++">+</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -16,18 +19,11 @@
     new Vue({
         el: '#app',
         data: {
-            x: 0,
-            y: 0,
+            url: 'http://google.ru',
+            number: 0
         },
-        methods: {
-            handleMouseMove: function (event) {
-                this.x = event.clientX;
-                this.y = event.clientY;
-
-            }
-        }
+        methods: {}
     })
-    ;
 </script>
 </body>
 </html>
