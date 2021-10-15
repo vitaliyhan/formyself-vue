@@ -9,19 +9,51 @@
 </head>
 <body>
 <div id="app">
-
+    <h1>{{ title }}</h1>
+    <button @click="title=title+1">clik</button>
+    <button @click="deleteTitle()">clik</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script>
-    var vue = new Vue({
+    new Vue({
+        el: '#app',
         data: {
             title: 'Hwi',
         },
-        methods: {},
-        template: '<h1>{{title}}</h1>'
+        methods: {
+            deleteTitle: function () {
+                this.$destroy()
+            }
+
+        },
+        beforeCreate: function () {
+            console.log('before create')
+        },
+        created: function () {
+            console.log('created')
+        },
+        beforeMount() {
+            console.log('before mount')
+        },
+        mounted() {
+            console.log('mounted')
+        },
+        beforeUpdate() {
+            console.log('beforeUpdate')
+        },
+        updated() {
+            console.log('Updated')
+        },
+        beforeDestroy() {
+            console.log('beforeDestroy')
+        },
+        destroyed() {
+            console.log('Destroyed')
+        }
+
+
     });
-    vue.$mount('#app')
 
 </script>
 </body>
