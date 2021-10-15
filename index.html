@@ -9,11 +9,16 @@
 </head>
 <body>
 <div id="app">
+    <ul>
+        <li v-for="(person,index) of people">{{ index + 1 }} {{ person.name }} {{ person.age }}</li>
+    </ul>
+    <ol>
+        <li v-for="num of 3">{{num}}</li>
+    </ol>
 
-    <h2 v-show="is">Im a title1</h2>
-
-    <h2 v-show="!is">Im a title2</h2>
-    <button @click="is=!is">feffs</button>
+    <ul>
+        <li v-for="(value, key, index) of person"><em>{{ index + 1 }}</em>{{ key }} {{ value }}</li>
+    </ul>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -21,7 +26,18 @@
     new Vue({
         el: '#app',
         data: {
-            is: false,
+            people: [
+                {name: 'vlad', age: 30},
+                {name: 'elena', age: 30},
+                {name: 'vlad', age: 30},
+                {name: 'vlad', age: 30},
+            ],
+            person: {
+                name: 'vak',
+                age: 40,
+                job: 'Front'
+            }
+
         },
         computed: {},
         methods: {}
