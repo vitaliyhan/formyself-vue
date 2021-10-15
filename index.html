@@ -44,6 +44,11 @@
                 console.log('result computed was logged')
                 return this.counter > 3 ? 'More 3' : 'Less 3'
             }
+        },
+        watch: {
+            counter: function (value) {
+                console.log('from watch ' +value)
+            }
         }
     })
 </script>
