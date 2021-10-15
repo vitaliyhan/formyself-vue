@@ -9,16 +9,13 @@
 </head>
 <body>
 <div id="app">
-    <ul>
-        <li v-for="(person,index) of people">{{ index + 1 }} {{ person.name }} {{ person.age }}</li>
-    </ul>
-    <ol>
-        <li v-for="num of 3">{{num}}</li>
-    </ol>
+    <h2>Counter: {{ counter }} / {{ counter2 }}</h2>
+    <h3>{{ result() }}</h3>
+    <h3>{{ computedResult }}</h3>
 
-    <ul>
-        <li v-for="(value, key, index) of person"><em>{{ index + 1 }}</em>{{ key }} {{ value }}</li>
-    </ul>
+    <button @click="add">+</button>
+    <button @click="sub">-</button>
+    <button @click="counter2++">+ c2</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
@@ -26,21 +23,28 @@
     new Vue({
         el: '#app',
         data: {
-            people: [
-                {name: 'vlad', age: 30},
-                {name: 'elena', age: 30},
-                {name: 'vlad', age: 30},
-                {name: 'vlad', age: 30},
-            ],
-            person: {
-                name: 'vak',
-                age: 40,
-                job: 'Front'
-            }
-
+            counter: 0,
+            counter2: 0
         },
         computed: {},
-        methods: {}
+        methods: {
+            add: function () {
+                this.counter++
+            },
+            sub: function () {
+                this.counter--
+            },
+            result: function () {
+                console.log('result was logged')
+                return this.counter > 3 ? 'More 3' : 'Less 3'
+            }
+        },
+        computed: {
+            computedResult: function () {
+                console.log('result computed was logged')
+                return this.counter > 3 ? 'More 3' : 'Less 3'
+            }
+        }
     })
 </script>
 </body>
