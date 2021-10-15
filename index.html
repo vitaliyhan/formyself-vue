@@ -9,47 +9,46 @@
 </head>
 <body>
 <div id="app">
-    <h2>Counter: {{ counter }} / {{ counter2 }}</h2>
-    <h3>{{ result() }}</h3>
-    <h3>{{ computedResult }}</h3>
+    <h2>{{ title }}</h2>
+    <button >Change title</button>
+</div>
 
-    <button @click="add">+</button>
-    <button @click="sub">-</button>
-    <button @click="counter2++">+ c2</button>
+<div id="app2">
+    <h2>{{ title }}</h2>
+    <button @click="update_h1()">Change title</button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script>
-    new Vue({
+    var vue1 = new Vue({
         el: '#app',
         data: {
-            counter: 0,
-            counter2: 0
+            title: 'Hi',
         },
         computed: {},
         methods: {
-            add: function () {
-                this.counter++
-            },
-            sub: function () {
-                this.counter--
-            },
-            result: function () {
-                console.log('result was logged')
-                return this.counter > 3 ? 'More 3' : 'Less 3'
+            alerFast: function (){
+                alert('hi')
             }
         },
-        computed: {
-            computedResult: function () {
-                console.log('result computed was logged')
-                return this.counter > 3 ? 'More 3' : 'Less 3'
+        computed: {},
+        watch: {}
+    })
+    console.log(vue1)
+    var vue2 = new Vue({
+        el: '#app2',
+        data: {
+            title: 'Hi',
+        },
+        computed: {},
+        methods: {
+            update_h1: function (){
+                vue1.title = 'vrert';
+                vue1.alerFast();
             }
         },
-        watch: {
-            counter: function (value) {
-                console.log('from watch ' +value)
-            }
-        }
+        computed: {},
+        watch: {}
     })
 </script>
 </body>
