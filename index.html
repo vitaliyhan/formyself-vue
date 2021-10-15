@@ -9,47 +9,29 @@
 </head>
 <body>
 <div id="app">
-    <h2>{{ title }}</h2>
-    <button >Change title</button>
-</div>
-
-<div id="app2">
-    <h2>{{ title }}</h2>
-    <button @click="update_h1()">Change title</button>
+    <h2 ref="heading">{{ title }}</h2>
+    <button @click="updateTitle">Hi</button>
+    <hr ref="hr">
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script>
-    var vue1 = new Vue({
+    new Vue({
         el: '#app',
         data: {
             title: 'Hi',
         },
-        computed: {},
         methods: {
-            alerFast: function (){
-                alert('hi')
+            updateTitle: function (){
+                this.title = 'new'
+                this.$refs.heading.style.color = 'red'
+
+                console.log(this.$refs.heading)
+                console.log(this.$refs.hr)
             }
         },
-        computed: {},
-        watch: {}
     })
-    console.log(vue1)
-    var vue2 = new Vue({
-        el: '#app2',
-        data: {
-            title: 'Hi',
-        },
-        computed: {},
-        methods: {
-            update_h1: function (){
-                vue1.title = 'vrert';
-                vue1.alerFast();
-            }
-        },
-        computed: {},
-        watch: {}
-    })
+
 </script>
 </body>
 </html>
