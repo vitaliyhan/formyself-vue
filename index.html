@@ -10,14 +10,15 @@
 
 
 </div>
+<hr>
+<div id="app2">
+    <my-counter2 v-for="c in 1"></my-counter2>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script>
-    var dataObj = {
-        counter: 0
-    }
-
-    Vue.component('my-counter', {
+    var component = {
         template: `
           <div style="border: 1px solid black;padding: 10px">
           <h1>Counter: {{ counter }}</h1>
@@ -34,10 +35,19 @@
                 this.counter++
             }
         }
-    });
+    }
 
     new Vue({
         el: '#app',
+        components: {
+            'my-counter': component
+        }
+    });
+    new Vue({
+        el: '#app2',
+        components: {
+            'my-counter2': component
+        }
     });
 
 </script>
