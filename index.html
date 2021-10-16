@@ -6,13 +6,17 @@
 </head>
 <body>
 <div id="app">
-    <my-counter v-for="c in 1"></my-counter>
+    <my-counter v-for="c in 2"></my-counter>
 
 
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
 <script>
+    var dataObj = {
+        counter: 0
+    }
+
     Vue.component('my-counter', {
         template: `
           <div style="border: 1px solid black;padding: 10px">
@@ -20,7 +24,7 @@
           <button @click="add">click</button>
           </div>
         `,
-        data: function () {
+        data() {
             return {
                 counter: 0
             }
